@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farm Produce Listings</title>
+</head>
+<body>
+    <h1>Available Produce</h1>
+    <ul>
+        {% for item in produce %}
+            <li>
+                <strong>{{ item.name }}</strong> – Ksh {{ item.price }}<br>
+                Quantity: {{ item.quantity }}<br>
+                Location: {{ item.location }}<br>
+                <a href="https://wa.me/{{ item.contact|urlencode }}" target="_blank">
+                    Contact on WhatsApp
+                </a>
+                <hr>
+            </li>
+        {% empty %}
+            <li>No produce listed yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
